@@ -10,12 +10,13 @@
             "email": "info@yamal-web.ru"
         }
     ],
+    "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "*"
     },
     "autoload": {
         "psr-4": {
-            "yamalweb\\banner\\": ""
+            "yamalweb\\banner\\": "src"
         }
     }
 }
