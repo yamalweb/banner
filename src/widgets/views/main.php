@@ -5,6 +5,11 @@ $cookies = Yii::$app->request->cookies;
 
 if (($cookie = $cookies->get('alreadySeen')) === null) {
     BannerAssetsBundle::register($this);
+    $cookiesResp = Yii::$app->response->cookies;
+    $cookiesResp->add(new \yii\web\Cookie([
+        'name' => 'alreadySeen',
+        'value' => 1,
+    ]));
 } ?>
 <div id="banner" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -17,9 +22,7 @@ if (($cookie = $cookies->get('alreadySeen')) === null) {
                 <p><?=\yii\helpers\Html::encode($message)?></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
-                    <?=\yii\helpers\Html::a(\yii\helpers\Html::encode($textButton),$urlButton)?>
-                </button>
+                <?=\yii\helpers\Html::a(\yii\helpers\Html::encode($textButton),$urlButton,$optionsButton)?>
             </div>
         </div>
 

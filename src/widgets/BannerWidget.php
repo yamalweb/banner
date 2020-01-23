@@ -13,7 +13,7 @@ class BannerWidget extends \yii\base\Widget
     public $message;
     public $textButton;
     public $urlButton;
-
+    public $optionsButton;
 
     public function init()
     {
@@ -30,14 +30,19 @@ class BannerWidget extends \yii\base\Widget
         if ($this->urlButton === null) {
             $this->urlButton = '';
         }
+        if ($this->optionsButton === null) {
+            $this->optionsButton = ['class'=>'btn-lg btn-primary', 'role'=>'button', 'style'=>'text-decoration: none;'];
+        }
     }
 
     public function run()
     {
         return $this->render('main',[
+            'textHeader'=>$this->textHeader,
             'message'=>$this->message,
             'textButton'=>$this->textButton,
-            'urlButton'=>$this->urlButton
+            'urlButton'=>$this->urlButton,
+            'optionsButton'=>$this->optionsButton
         ]);
     }
 }
