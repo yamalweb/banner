@@ -1,6 +1,6 @@
 <?php
 
-namespace common\modules\banner;
+namespace yamalweb\banner\banner;
 
 /**
  * menu module definition class
@@ -10,7 +10,7 @@ class Module extends \yii\base\Module
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'common\modules\banner\controllers';
+    public $controllerNamespace = 'yamalweb\banner\controllers';
     /**
      * @inheritdoc
      */
