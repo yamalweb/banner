@@ -1,16 +1,7 @@
 <?php
 use yamalweb\banner\BannerAssetsBundle;
-
-$cookies = Yii::$app->request->cookies;
-
-if (($cookie = $cookies->get('alreadySeen')) === null) {
-    BannerAssetsBundle::register($this);
-    $cookiesResp = Yii::$app->response->cookies;
-    $cookiesResp->add(new \yii\web\Cookie([
-        'name' => 'alreadySeen',
-        'value' => 1,
-    ]));
-} ?>
+BannerAssetsBundle::register($this);
+ ?>
 <div id="banner" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
