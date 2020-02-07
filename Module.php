@@ -1,6 +1,6 @@
 <?php
 
-namespace yamalweb\banner\banner;
+namespace yamalweb\banner;
 
 /**
  * menu module definition class
