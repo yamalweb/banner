@@ -38,7 +38,7 @@ class Banner extends \yii\db\ActiveRecord
                 'scenarios' => ['insert', 'update'],
                 'placeholder' => '@frontend/web/images/icons/Info.png',
                 'path' => '@frontend/web/uploads/banner',
-                'url' => '@web/upload/banner',
+                'url' => '@web/uploads/banner',
                 'thumbs' => [
                     'thumb' => ['width' => 90, 'height' => 60,'quality' => 60,'mode'=>'outbound'],
                     'full' => ['width' => 600, 'height' => 800,'quality' => 90,'mode'=>'outbound'],
