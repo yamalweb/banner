@@ -21,11 +21,31 @@ or add
 
 to the require section of your `composer.json` file.
 
+php yii migrate --migrationPath="@yamalweb/banner/migrations"
 
+'controllerMap' => [
+        'banner' => [
+            'class' => 'yamalweb\banner\controllers\BannerController',
+            'viewPath' => '@yamalweb/banner/views',
+        ]
+    ],
+    
+    
+    
+    or
+    
+    'banner' => [
+                'class' => 'yamalweb\banner\Module',
+                'controllerNamespace' => 'yamalweb\banner\controllers',
+                'viewPath' => '@yamalweb/banner/views',
+            ],
 Usage
 -----
 
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \yamalweb\banner\AutoloadExample::widget(); ?>```
+<?= \yamalweb\banner\widgets\BannerWidget::widget([
+            'id'=>2,
+            'cookieEnabled'=>false
+        ]) ?>

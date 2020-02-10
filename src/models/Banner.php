@@ -25,7 +25,7 @@ class Banner extends \yii\db\ActiveRecord
             [['title'], 'required'],
             ['filename', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['insert', 'update'], 'skipOnEmpty' => !$this->isNewRecord],
             [['button_text','button_url'], 'string', 'max' => 255],
-            ['description','string'],
+            ['text','string'],
         ];
     }
 
@@ -36,7 +36,7 @@ class Banner extends \yii\db\ActiveRecord
                 'class' => UploadImageBehavior::className(),
                 'attribute' => 'filename',
                 'scenarios' => ['insert', 'update'],
-                'placeholder' => '@frontend/web/img/image-placeholder.png',
+                'placeholder' => '@frontend/web/images/icons/Info.png',
                 'path' => '@frontend/web/upload/banner',
                 'url' => '@web/upload/banner',
                 'thumbs' => [
@@ -55,8 +55,8 @@ class Banner extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title'=>'Заголовок слайда',
-            'description'=>'Описание',
+            'title'=>'Заголовок',
+            'text'=>'Описание',
             'filename' => 'Файл',
             'button_text'=>'Текст кнопки',
             'button_url'=>'Ссылка кнопки',

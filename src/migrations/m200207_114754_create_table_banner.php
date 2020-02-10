@@ -15,7 +15,7 @@ class m200207_114754_create_table_banner extends Migration
             'id' => $this->primaryKey(),
             'filename' => $this->string()->comment('Изображение'),
             'title' => $this->string()->comment('Заголовок'),
-            'description' => $this->text()->comment('Описание'),
+            'text' => $this->text()->comment('Текст'),
             'button_text' => $this->string()->comment('Текст кнопки'),
             'button_url' => $this->string()->comment('Ссылка кнопки'),
         ], $tableOptions);

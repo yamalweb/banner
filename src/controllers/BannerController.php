@@ -66,13 +66,10 @@ class BannerController extends Controller
      */
     public function actionCreate()
     {
-        $model = new \common\modules\banner\models\Banner();
-
+        $model = new Banner();
+        $model->setScenario('insert');
         if ( $model->load(Yii::$app->request->post()) && $model->save() ) {
-            if($returnUrl = Yii::$app->request->get('return-url')){
-                return $this->redirect([$returnUrl,'banner-id'=>$model->id]);
-            }
-            set_flash('Сохранено');
+
             return $this->redirect(['index']);
         }
 
@@ -81,88 +78,18 @@ class BannerController extends Controller
         ]);
     }
 
-    public function actionUpdatepic($id)
+    public function actionUpdate($id)
     {
-        $model = $this->findOnePicModel($id);
+        $model = $this->findModel($id);
         $model->setScenario('update');
 
         if ( $model->load(Yii::$app->request->post()) && $model->save() ) {
 
-            return $this->redirect(['/banner/banner/update', 'id' => $model->banner_id]);
-        }
-        return $this->render('updatePic', [
-            'model' => $model,
-        ]);
-
-    }
-
-    /**
-     * Updates an existing Banner model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        $currentPics = new ActiveDataProvider([
-            'query' => $this->findPicModel($id),
-        ]);
-        $modelPic = new BannerPic();
-        $modelPic->setScenario('update');
-
-        if ( $modelPic->load(Yii::$app->request->post()) && $modelPic->validate() ) {
-
-            $modelPic->banner_id = $id;
-            $modelPic->save(false);
-            set_flash('Сохранено');
-            $this->refresh();
-        }
-
-        if ( $model->load(Yii::$app->request->post()) && $model->save() ) {
-            set_flash('Сохранено');
             return $this->redirect(['index']);
         }
-
         return $this->render('update', [
             'model' => $model,
-            'modelPic' => $modelPic,
-            'currentPics' => $currentPics
         ]);
-    }
-
-    public function actionDeletepic($id)
-    {
-        $this->findOnePicModel($id)->delete();
-        return $this->redirect(Yii::$app->request->referrer);
-    }
-
-    protected function findPicModelById($id)
-    {
-        if ( ($model = Banner::find()->where(['id' => $id])->one()) !== null ) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    protected function findPicModel($id)
-    {
-        if ( ($model = Banner::find()->where(['banner_id' => $id])) !== null ) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    protected function findOnePicModel($id)
-    {
-        if ( ($model = Banner::find()->where(['id' => $id])->one()) !== null ) {
-            return $model;
-        }
-        throw new NotFoundHttpException('The requested page does not exist.');
 
     }
 
@@ -174,7 +101,7 @@ class BannerController extends Controller
      */
     protected function findModel($id)
     {
-        if ( ($model = \common\modules\banner\models\Banner::findOne($id)) !== null ) {
+        if ( ($model = Banner::findOne($id)) !== null ) {
             return $model;
         }
 

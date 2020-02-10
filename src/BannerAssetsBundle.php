@@ -3,7 +3,7 @@ namespace yamalweb\banner;
 use yii\web\AssetBundle;
 class BannerAssetsBundle extends AssetBundle
 {
-    public $sourcePath = '@vendor/yamalweb/banner/assets';
+    public $sourcePath = '@yamalweb/banner/assets';
     public $css = [
         'css/style.css'
     ];
