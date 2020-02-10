@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 
-$this->title = 'Редактирование слайдера: ' . $model->id;
+$this->title = 'Редактирование баннера: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Баннеры', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Редактирование';
 
@@ -16,10 +16,5 @@ $this->params['breadcrumbs'][] = 'Редактирование';
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-    <hr>
-    <?= $this->render('_pics', [
-        'modelPic' => $modelPic,
-        'currentPics'=>$currentPics
-    ]);
-    ?>
+
 </div>

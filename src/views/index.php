@@ -26,14 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' =>['style'=>'vertical-align:middle;']
             ],
             [
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::img(Yii::$app->urlManagerFrontEnd->createUrl($model->getThumbUploadUrl('filename', 'thumb')), ['class' => 'img-thumbnail']);
-                },
-                'contentOptions' => ['style' => 'vertical-align:middle;'],
-                'options' => ['style' => ['width' => '10%']],
-            ],
-            [
                 'attribute'=>'title',
                 'format'=>'raw',
                 'value' => function ($model) {
