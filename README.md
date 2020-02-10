@@ -21,6 +21,14 @@ or add
 
 to the require section of your `composer.json` file.
 
+"repositories":[
+       
+        {
+            "type": "git",
+            "url": "https://github.com/yamalweb/banner.git"
+        }
+    ]
+
 php yii migrate --migrationPath="@yamalweb/banner/migrations"
 
 'controllerMap' => [
